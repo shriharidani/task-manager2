@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.shrihari.navbar">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+
+
+        <activity
+            android:name=".Activities.MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".Activities.AddTaskActivity"
+                android:parentActivityName=".Activities.MainActivity">
+            <meta-data android:name="android.support.MAIN_ACTIVITY"
+                android:value=".activities.MainActivity"/>
+        </activity>
+
+        <activity android:name=".Activities.CreateGroup"
+            android:parentActivityName=".Activities.MainActivity">
+            <meta-data android:name="android.support.MainActivity"
+                android:value=".activities.MainActivity"/>
+        </activity>
+
+        <activity android:name=".Activities.addContact"
+            android:parentActivityName=".Activities.CreateGroup">
+            <meta-data android:name="android.support.CreateGroup"
+                android:value=".activities.CreateGroup"/>
+        </activity>
+
+
+        <service android:name=".Services.TaskSocketIO"/>
+    </application>
+
+</manifest>
